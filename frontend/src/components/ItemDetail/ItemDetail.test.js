@@ -3,10 +3,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import ItemDetail from './index';
 
-// Mock do fetch global
 global.fetch = jest.fn();
 
-// Mock do useNavigate
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -29,13 +27,12 @@ describe('ItemDetail', () => {
   });
 
   it('should render loading skeleton initially', () => {
-    fetch.mockImplementation(() => new Promise(() => {})); // Promise que nunca resolve
+    fetch.mockImplementation(() => new Promise(() => {}));
 
     renderWithRouter(<ItemDetail />);
 
     expect(screen.getByText('← Back to Items')).toBeInTheDocument();
     
-    // Verificar se há elementos skeleton
     const skeletons = document.querySelectorAll('[class*="skeleton"]');
     expect(skeletons.length).toBeGreaterThan(0);
   });
@@ -168,7 +165,6 @@ describe('ItemDetail', () => {
   });
 
   it('should handle different item IDs', async () => {
-    // Mock do useParams para um ID diferente
     jest.doMock('react-router-dom', () => ({
       ...jest.requireActual('react-router-dom'),
       useNavigate: () => mockNavigate,
