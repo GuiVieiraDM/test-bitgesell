@@ -33,7 +33,6 @@ export function DataProvider({ children }) {
     }
   }, []);
 
-  // AGORA FORA DO fetchItems:
   const createItem = useCallback(async (itemData) => {
     try {
       const response = await fetch('/api/items', {
@@ -47,8 +46,8 @@ export function DataProvider({ children }) {
         throw new Error('Failed to create item');
       }
       const newItem = await response.json();
-      // Recarrega a lista para mostrar o novo item
-      fetchItems(new AbortController().signal, '', 1, 10); // ou use os estados atuais se preferir
+     
+      fetchItems(new AbortController().signal, '', 1, 10);
       return newItem;
     } catch (error) {
       console.error('Error creating item:', error);
