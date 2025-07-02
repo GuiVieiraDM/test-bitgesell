@@ -30,7 +30,6 @@ describe('ItemForm', () => {
   it('should handle form submission with valid data', async () => {
     render(<ItemForm {...defaultProps} />);
 
-    // Preencher o formulário
     fireEvent.change(screen.getByLabelText(/name/i), {
       target: { value: 'Test Product' }
     });
@@ -41,7 +40,6 @@ describe('ItemForm', () => {
       target: { value: '100.50' }
     });
 
-    // Submeter o formulário
     fireEvent.click(screen.getByText('Add Item'));
 
     await waitFor(() => {
@@ -58,10 +56,8 @@ describe('ItemForm', () => {
 
     const priceInput = screen.getByLabelText(/price/i);
     
-    // Digitar preço
     fireEvent.change(priceInput, { target: { value: '100.50' } });
     
-    // Focar e desfocar para formatar
     fireEvent.focus(priceInput);
     fireEvent.blur(priceInput);
 
@@ -73,11 +69,9 @@ describe('ItemForm', () => {
 
     const priceInput = screen.getByLabelText(/price/i);
     
-    // Digitar preço e formatar
     fireEvent.change(priceInput, { target: { value: '100.50' } });
     fireEvent.blur(priceInput);
     
-    // Focar novamente
     fireEvent.focus(priceInput);
 
     expect(priceInput.value).toBe('100.50');
@@ -104,7 +98,6 @@ describe('ItemForm', () => {
     
     render(<ItemForm {...defaultProps} />);
 
-    // Preencher e submeter
     fireEvent.change(screen.getByLabelText(/name/i), {
       target: { value: 'Test Product' }
     });
@@ -117,7 +110,6 @@ describe('ItemForm', () => {
 
     fireEvent.click(screen.getByText('Add Item'));
 
-    // Verificar se os campos estão desabilitados
     expect(screen.getByLabelText(/name/i)).toBeDisabled();
     expect(screen.getByLabelText(/category/i)).toBeDisabled();
     expect(screen.getByLabelText(/price/i)).toBeDisabled();
@@ -128,7 +120,6 @@ describe('ItemForm', () => {
   it('should clear form after successful submission', async () => {
     render(<ItemForm {...defaultProps} />);
 
-    // Preencher o formulário
     fireEvent.change(screen.getByLabelText(/name/i), {
       target: { value: 'Test Product' }
     });
@@ -139,7 +130,6 @@ describe('ItemForm', () => {
       target: { value: '100' }
     });
 
-    // Submeter
     fireEvent.click(screen.getByText('Add Item'));
 
     await waitFor(() => {
@@ -154,7 +144,6 @@ describe('ItemForm', () => {
 
     const priceInput = screen.getByLabelText(/price/i);
     
-    // Testar entrada inválida
     fireEvent.change(priceInput, { target: { value: 'abc' } });
     fireEvent.blur(priceInput);
 
