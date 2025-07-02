@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { DataProvider } from '../../../state/DataContext';
 import Items from '../index';
 
-// Mock do fetch global
 global.fetch = jest.fn();
 
 const renderWithProviders = (component) => {
@@ -20,7 +19,6 @@ const renderWithProviders = (component) => {
 describe('Items Page', () => {
   beforeEach(() => {
     fetch.mockClear();
-    // Mock padrão para evitar erros de fetch não mockado
     fetch.mockResolvedValue({
       ok: true,
       json: async () => ({
@@ -64,14 +62,11 @@ describe('Items Page', () => {
 
     const addButton = screen.getByTitle(/add new item/i);
     
-    // Formulário não deve estar visível inicialmente
     expect(screen.queryByText('Add New Item')).not.toBeInTheDocument();
     
-    // Clicar no botão para mostrar o formulário
     fireEvent.click(addButton);
     expect(screen.getByText('Add New Item')).toBeInTheDocument();
     
-    // Clicar novamente para esconder
     fireEvent.click(addButton);
     expect(screen.queryByText('Add New Item')).not.toBeInTheDocument();
   });
@@ -94,10 +89,8 @@ describe('Items Page', () => {
 
     renderWithProviders(<Items />);
 
-    // Abrir formulário
     fireEvent.click(screen.getByTitle(/add new item/i));
     
-    // Preencher e submeter usando seletores mais específicos
     const formInputs = screen.getAllByDisplayValue('');
     const nameInput = formInputs[1]; // Primeiro input do formulário (após o search)
     const categoryInput = formInputs[2]; // Segundo input do formulário
@@ -115,13 +108,10 @@ describe('Items Page', () => {
   });
 
   it('should show error message when item creation fails', async () => {
-    // Mock específico para este teste - não usar o mock global
     fetch.mockImplementation((url) => {
       if (url.includes('/api/items') && !url.includes('?')) {
-        // Mock para criação de item - simula erro
         return Promise.reject(new Error('Network error'));
       } else {
-        // Mock para outras chamadas (busca de itens)
         return Promise.resolve({
           ok: true,
           json: async () => ({
@@ -134,13 +124,11 @@ describe('Items Page', () => {
 
     renderWithProviders(<Items />);
 
-    // Abrir formulário
     fireEvent.click(screen.getByTitle(/add new item/i));
     
-    // Preencher e submeter usando seletores mais específicos
     const formInputs = screen.getAllByDisplayValue('');
-    const nameInput = formInputs[1]; // Primeiro input do formulário (após o search)
-    const categoryInput = formInputs[2]; // Segundo input do formulário
+    const nameInput = formInputs[1];
+    const categoryInput = formInputs[2];
     const priceInput = screen.getByPlaceholderText('$0.00');
     
     fireEvent.change(nameInput, { target: { value: 'Test Item' } });
@@ -151,7 +139,6 @@ describe('Items Page', () => {
 
     await waitFor(
       () => {
-        // Procura por qualquer elemento que contenha o texto de erro, mesmo que fragmentado
         const errorMsg = screen.queryByText(/error creating item/i);
         expect(errorMsg).not.toBeNull();
       },
@@ -192,7 +179,6 @@ describe('Items Page', () => {
       price: 100
     }));
 
-    // Primeira página
     fetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({
@@ -201,7 +187,6 @@ describe('Items Page', () => {
       })
     });
 
-    // Segunda página
     fetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({
@@ -216,7 +201,6 @@ describe('Items Page', () => {
       expect(screen.getByText('Page 1 of 3')).toBeInTheDocument();
     });
 
-    // Clicar em Next
     fireEvent.click(screen.getByText('Next'));
 
     await waitFor(() => {
@@ -249,14 +233,12 @@ describe('Items Page', () => {
       const prevButton = screen.getByText('Previous');
       const nextButton = screen.getByText('Next');
       
-      // Na página 2, o botão Previous deve estar habilitado e Next desabilitado
       expect(prevButton).not.toBeDisabled();
       expect(nextButton).not.toBeDisabled();
     });
   });
 
   it('should show loading state during data fetch', async () => {
-    // Mock de uma requisição lenta
     fetch.mockImplementation(() => new Promise(resolve => setTimeout(() => {
       resolve({
         ok: true,
@@ -269,7 +251,6 @@ describe('Items Page', () => {
 
     renderWithProviders(<Items />);
 
-    // Verificar se o componente está renderizando durante o loading
     expect(screen.getByPlaceholderText(/search by name/i)).toBeInTheDocument();
   });
 }); 
