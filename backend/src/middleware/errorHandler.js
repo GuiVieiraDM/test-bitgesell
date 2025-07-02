@@ -40,4 +40,11 @@ const getCookie = async (req, res, next) => {
   );
 };
 
-module.exports = { getCookie, notFound };
+// Middleware padrão de erro do Express
+const expressErrorHandler = (err, req, res, next) => {
+  res.status(err.status || 500).json({
+    error: err.message || 'Internal Server Error'
+  });
+};
+
+module.exports = { getCookie, notFound, expressErrorHandler };

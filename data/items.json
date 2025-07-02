@@ -1,7 +1,308 @@
 [
-  { "id": 1, "name": "Laptop Pro", "category": "Electronics", "price": 2499 },
-  { "id": 2, "name": "Noise Cancelling Headphones", "category": "Electronics", "price": 399 },
-  { "id": 3, "name": "Ultra‑Wide Monitor", "category": "Electronics", "price": 999 },
-  { "id": 4, "name": "Ergonomic Chair", "category": "Furniture", "price": 799 },
-  { "id": 5, "name": "Standing Desk", "category": "Furniture", "price": 1199 }
+  {
+    "id": 1,
+    "name": "Laptop Pro",
+    "category": "Electronics",
+    "price": 2499
+  },
+  {
+    "id": 2,
+    "name": "Noise Cancelling Headphones",
+    "category": "Electronics",
+    "price": 399
+  },
+  {
+    "id": 3,
+    "name": "Ultra‑Wide Monitor",
+    "category": "Electronics",
+    "price": 999
+  },
+  {
+    "id": 4,
+    "name": "Ergonomic Chair",
+    "category": "Furniture",
+    "price": 799
+  },
+  {
+    "id": 5,
+    "name": "Standing Desk",
+    "category": "Furniture",
+    "price": 1199
+  },
+  {
+    "id": 6,
+    "name": "Smartphone X",
+    "category": "Electronics",
+    "price": 1099
+  },
+  {
+    "id": 7,
+    "name": "Bluetooth Speaker",
+    "category": "Electronics",
+    "price": 149
+  },
+  {
+    "id": 8,
+    "name": "Mechanical Keyboard",
+    "category": "Electronics",
+    "price": 129
+  },
+  {
+    "id": 9,
+    "name": "Wireless Mouse",
+    "category": "Electronics",
+    "price": 79
+  },
+  {
+    "id": 10,
+    "name": "LED Desk Lamp",
+    "category": "Furniture",
+    "price": 59
+  },
+  {
+    "id": 11,
+    "name": "4K Action Camera",
+    "category": "Electronics",
+    "price": 299
+  },
+  {
+    "id": 12,
+    "name": "Fitness Tracker",
+    "category": "Electronics",
+    "price": 99
+  },
+  {
+    "id": 13,
+    "name": "Smartwatch",
+    "category": "Electronics",
+    "price": 249
+  },
+  {
+    "id": 14,
+    "name": "Tablet S",
+    "category": "Electronics",
+    "price": 599
+  },
+  {
+    "id": 15,
+    "name": "E‑reader",
+    "category": "Electronics",
+    "price": 129
+  },
+  {
+    "id": 16,
+    "name": "Portable SSD",
+    "category": "Electronics",
+    "price": 179
+  },
+  {
+    "id": 17,
+    "name": "Gaming Console",
+    "category": "Electronics",
+    "price": 499
+  },
+  {
+    "id": 18,
+    "name": "VR Headset",
+    "category": "Electronics",
+    "price": 399
+  },
+  {
+    "id": 19,
+    "name": "Smart Home Hub",
+    "category": "Electronics",
+    "price": 199
+  },
+  {
+    "id": 20,
+    "name": "Robot Vacuum",
+    "category": "Home Appliances",
+    "price": 349
+  },
+  {
+    "id": 21,
+    "name": "Espresso Machine",
+    "category": "Home Appliances",
+    "price": 599
+  },
+  {
+    "id": 22,
+    "name": "Air Purifier",
+    "category": "Home Appliances",
+    "price": 249
+  },
+  {
+    "id": 23,
+    "name": "Blender Pro",
+    "category": "Home Appliances",
+    "price": 179
+  },
+  {
+    "id": 24,
+    "name": "Microwave Oven",
+    "category": "Home Appliances",
+    "price": 229
+  },
+  {
+    "id": 25,
+    "name": "Smart Refrigerator",
+    "category": "Home Appliances",
+    "price": 1499
+  },
+  {
+    "id": 26,
+    "name": "Dishwasher",
+    "category": "Home Appliances",
+    "price": 799
+  },
+  {
+    "id": 27,
+    "name": "Induction Cooktop",
+    "category": "Home Appliances",
+    "price": 499
+  },
+  {
+    "id": 28,
+    "name": "Air Fryer",
+    "category": "Home Appliances",
+    "price": 129
+  },
+  {
+    "id": 29,
+    "name": "Toaster Oven",
+    "category": "Home Appliances",
+    "price": 99
+  },
+  {
+    "id": 30,
+    "name": "Cordless Drill",
+    "category": "Tools",
+    "price": 89
+  },
+  {
+    "id": 31,
+    "name": "Tool Set",
+    "category": "Tools",
+    "price": 149
+  },
+  {
+    "id": 32,
+    "name": "Pressure Washer",
+    "category": "Tools",
+    "price": 299
+  },
+  {
+    "id": 33,
+    "name": "Lawn Mower",
+    "category": "Tools",
+    "price": 399
+  },
+  {
+    "id": 34,
+    "name": "Electric Screwdriver",
+    "category": "Tools",
+    "price": 59
+  },
+  {
+    "id": 35,
+    "name": "Bookshelf",
+    "category": "Furniture",
+    "price": 199
+  },
+  {
+    "id": 36,
+    "name": "Sofa Bed",
+    "category": "Furniture",
+    "price": 899
+  },
+  {
+    "id": 37,
+    "name": "Dining Table",
+    "category": "Furniture",
+    "price": 699
+  },
+  {
+    "id": 38,
+    "name": "Office Desk",
+    "category": "Furniture",
+    "price": 499
+  },
+  {
+    "id": 39,
+    "name": "Recliner Chair",
+    "category": "Furniture",
+    "price": 599
+  },
+  {
+    "id": 40,
+    "name": "Wardrobe",
+    "category": "Furniture",
+    "price": 799
+  },
+  {
+    "id": 41,
+    "name": "Queen Mattress",
+    "category": "Furniture",
+    "price": 999
+  },
+  {
+    "id": 42,
+    "name": "Bed Frame",
+    "category": "Furniture",
+    "price": 399
+  },
+  {
+    "id": 43,
+    "name": "Nightstand",
+    "category": "Furniture",
+    "price": 129
+  },
+  {
+    "id": 44,
+    "name": "Coffee Table",
+    "category": "Furniture",
+    "price": 179
+  },
+  {
+    "id": 45,
+    "name": "Area Rug",
+    "category": "Furniture",
+    "price": 249
+  },
+  {
+    "id": 46,
+    "name": "Floor Lamp",
+    "category": "Furniture",
+    "price": 99
+  },
+  {
+    "id": 47,
+    "name": "Wall Art Set",
+    "category": "Decor",
+    "price": 89
+  },
+  {
+    "id": 48,
+    "name": "Table Clock",
+    "category": "Decor",
+    "price": 49
+  },
+  {
+    "id": 49,
+    "name": "Vase Set",
+    "category": "Decor",
+    "price": 59
+  },
+  {
+    "id": 50,
+    "name": "Throw Blanket",
+    "category": "Decor",
+    "price": 39
+  },
+  {
+    "id": 51,
+    "name": "Hire Guilherme Vieira",
+    "category": "Developers",
+    "price": 5000
+  }
 ]
