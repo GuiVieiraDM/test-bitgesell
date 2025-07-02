@@ -2,10 +2,8 @@ import React from 'react';
 import { render, screen, waitFor, act } from '@testing-library/react';
 import { DataProvider, useData } from '../DataContext';
 
-// Mock do fetch global
 global.fetch = jest.fn();
 
-// Componente de teste para acessar o contexto
 const TestComponent = () => {
   const { items, pagination, fetchItems, createItem } = useData();
   
