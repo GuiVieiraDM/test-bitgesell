@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import VirtualizedItems from '../index';
 
-// Mock do react-window para testes
 jest.mock('react-window', () => ({
   FixedSizeList: ({ children: Row, itemCount, height, itemSize, width }) => (
     <div data-testid="virtualized-list" style={{ height, width }}>
@@ -49,7 +48,6 @@ describe('VirtualizedItems', () => {
 
     expect(screen.getByTestId('virtualized-list')).toBeInTheDocument();
     
-    // O mock renderiza 5 itens skeleton por padrão
     expect(screen.getByTestId('virtualized-list')).toBeInTheDocument();
   });
 
@@ -58,7 +56,6 @@ describe('VirtualizedItems', () => {
       <VirtualizedItems items={[]} loading={true} itemCount={10} />
     );
 
-    // O mock renderiza até 5 itens para teste
     expect(screen.getByTestId('virtualized-list')).toBeInTheDocument();
   });
 
@@ -81,7 +78,6 @@ describe('VirtualizedItems', () => {
     );
 
     expect(screen.getByTestId('virtualized-list')).toBeInTheDocument();
-    // Não deve haver links quando não há items
     expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 
@@ -115,7 +111,6 @@ describe('VirtualizedItems', () => {
       <VirtualizedItems items={mockItems} loading={false} />
     );
 
-    // Quando não está carregando, deve renderizar os itens normais
     expect(screen.getByText('Laptop Pro')).toBeInTheDocument();
   });
 
